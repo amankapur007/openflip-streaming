@@ -1,4 +1,6 @@
-const puppeteer = require('puppeteer');
+const chrome = require('chrome-aws-lambda');
+const puppeteer = require('puppeteer-core');
+
 const express = require('express');
 
 const app = express()
@@ -30,8 +32,15 @@ app.get("/:data",async (req,res)=>{
 app.listen(3000)
 
 main = async (torrentId) => {
-    const browser = await puppeteer.launch({headless: true,devtools: false
-    });
+    
+  const browser = await puppeteer.launch({
+    args: chrome.args,
+    executablePath: await chrome.executablePath,
+    headless: chrome.headless,
+});
+
+  /*const browser = await puppeteer.launch({headless: true,devtools: false
+    });*/
     const page = await browser.newPage();
     await page.goto('https://webtor.io/en/',{waitUntil: 'networkidle2'});
     const button = await page.$('.btn.btn-primary.btn-lg.dropdown-toggle.dropdown-toggle-split');
