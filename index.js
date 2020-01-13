@@ -12,6 +12,10 @@ var formURI = function(xt,dn,tr){
   return encodeURI(magnetLink);
 }
 
+app.get("/",async (req,res)=>{
+  var link = await main("magnet:?xt=urn:btih:dec428a4be3f0d76aff2d0e85fa04878dcdef577&dn=Catch.Me.If.You.Can.2002.720p.BluRay.x264.Hindi.Eng.AC3-ETRG&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969");
+  res.json(link);
+})
 
 app.get("/:data",async (req,res)=>{
   console.log(req.params.data);
