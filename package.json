@@ -6,12 +6,16 @@
   "scripts": {
     "build": "npm install"
   },
-  "engines": { "node": "12.x" },
+  "engines": {
+    "node": "12.x"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chrome-aws-lambda": "^2.0.2",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
-    "puppeteer": "^2.0.0"
+    "puppeteer": "^2.0.0",
+    "puppeteer-core": "^2.0.0"
   }
 }
